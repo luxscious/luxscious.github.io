@@ -1,0 +1,42 @@
+.svg-line {
+  width: "100%";
+}
+
+.home-container--light {
+  background-color: #f3e095;
+}
+.home-container--dark {
+  background-color: #1b2124;
+}
+
+.home-container {
+  width: 100%;
+  height: 100vh;
+}
+
+/* enables mobile mode */
+@media (max-width: 850px) {
+  .top-bar-desktop {
+    display: none;
+  }
+  .top-bar-mobile {
+    display: flex;
+  }
+  .dark-mode-switch {
+    /* left: 100%; */
+    top: 10px;
+  }
+}
+/* enables desktop mode */
+@media (min-width: 851px) {
+  .top-bar-mobile {
+    display: none;
+  }
+  .top-bar-desktop {
+    display: flex;
+  }
+  .dark-mode-switch {
+    left: 50%;
+    top: 10px;
+  }
+}
