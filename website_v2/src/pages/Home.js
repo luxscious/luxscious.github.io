@@ -6,6 +6,8 @@ import Switch from "@mui/material/Switch";
 import NavBar from "../components/NavBar";
 import { Box } from "@mui/system";
 import Button from "@mui/material/Button";
+import { elastic as Menu } from "react-burger-menu";
+import Hamburger from "hamburger-react";
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -56,6 +58,7 @@ export default function Home(props) {
   const [maximumX, setMaximumX] = useState(window.innerWidth);
   const theme = props.theme;
   const colors = COLORS.home;
+  const [navPanel, setNavPanel] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
       setMaximumX(window.innerWidth);
@@ -67,14 +70,59 @@ export default function Home(props) {
       });
     };
   }, []);
+  console.log(navPanel);
+  var styles = {
+    bmBurgerButton: {
+      position: "fixed",
+      width: "50px",
+      height: "50px",
+      top: "36px",
+      right: "50px",
+    },
+    bmBurgerBars: {
+      background: theme === "light" ? colors.lightFont : colors.darkFont,
+    },
+    bmBurgerBarsHover: {
+      background: "#a90000",
+    },
+    bmCrossButton: {
+      height: "24px",
+      width: "24px",
+    },
+    bmCross: {
+      background: "#bdc3c7",
+    },
+    bmMenuWrap: {
+      position: "fixed",
+      height: "100%",
+    },
 
+    bmMenu: {
+      background: theme === "light" ? colors.darkBg : colors.lightBg,
+      padding: "3em 1.5em 3em",
+      fontSize: "16px",
+      justifyContent: "center",
+      display: "flex",
+    },
+    bmMorphShape: {
+      fill: theme === "light" ? colors.darkBg : colors.lightBg,
+    },
+    bmItemList: {
+      display: "flex",
+      flexDirection: "column",
+      background: theme === "light" ? colors.darkBg : colors.lightBg,
+      justifyContent: "space-between",
+    },
+  };
   return (
-    <>
+    <div id="outer-container">
       <div
+        id="page-wrap"
         class={`home-container home-container--${
           theme === "light" ? "light" : "dark"
         }`}
       >
+        {/* Top nav bar / mobile navbar  */}
         <div
           class="top-bar-desktop"
           style={{
@@ -119,28 +167,75 @@ export default function Home(props) {
           </div>
           <NavBar theme={theme} />
         </div>
-        <Box class="top-bar-mobile"></Box>
+        <div class="top-bar-mobile">
+          <Menu
+            onOpen={() => {
+              setNavPanel(true);
+            }}
+            isOpen={navPanel}
+            onClose={() => {
+              setNavPanel(false);
+            }}
+            customBurgerIcon={
+              <Hamburger
+                toggled={navPanel}
+                color={theme === "light" ? colors.lightFont : colors.darkFont}
+              />
+            }
+            noOverlay
+            right
+            styles={styles}
+          >
+            <NavBar isMobile theme={theme} />
+          </Menu>
+        </div>
+        {/* NAME  */}
         <div
           style={{
+            height: "95%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            height: "95%",
           }}
         >
-          <h1
+          <div
             style={{
-              color: colors.lightFont,
-              fontSize: "32px",
-              letterSpacing: "20px",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "middle",
+              maxWidth: "100%",
+              flexWrap: "wrap",
             }}
           >
-            GABRIELLA GERGES
-          </h1>
+            <h1
+              style={{
+                color: colors.lightFont,
+                fontSize: "32px",
+                letterSpacing: "20px",
+                textAlign: "middle",
+                maxHeight: "100%",
+                padding: "20px",
+              }}
+            >
+              GABRIELLA{" "}
+            </h1>
+            <h1
+              style={{
+                color: colors.lightFont,
+                fontSize: "32px",
+                letterSpacing: "20px",
+                textAlign: "middle",
+                padding: "20px",
+              }}
+            >
+              {" "}
+              GERGES
+            </h1>
+          </div>
         </div>
       </div>
-
+      {/* Squiggle line seperator */}
       <div class="svg-line">
         <svg width="100%" height="200">
           <path
@@ -150,7 +245,10 @@ export default function Home(props) {
             fill={theme === "light" ? colors.lightBg : colors.darkBg}
           />
         </svg>
+        <div
+          style={{ width: "100%", height: "50vh", backgroundColor: "white" }}
+        ></div>
       </div>
-    </>
+    </div>
   );
 }
