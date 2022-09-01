@@ -8,6 +8,7 @@ import { Box } from "@mui/system";
 import Button from "@mui/material/Button";
 import { elastic as Menu } from "react-burger-menu";
 import Hamburger from "hamburger-react";
+import Projects from "./Projects";
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -115,140 +116,180 @@ export default function Home(props) {
     },
   };
   return (
-    <div id="outer-container">
-      <div
-        id="page-wrap"
-        class={`home-container home-container--${
-          theme === "light" ? "light" : "dark"
-        }`}
-      >
-        {/* Top nav bar / mobile navbar  */}
+    <>
+      <div id="home">
         <div
-          class="top-bar-desktop"
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: "100%",
-            height: "5%",
-            paddingTop: "10px",
-            alignItems: "center",
-          }}
+          id="page-wrap"
+          class={`home-container home-container--${
+            theme === "light" ? "light" : "dark"
+          }`}
         >
-          <div>
-            <Button
-              sx={{
-                height: 40,
-                borderColor: "black",
-                marginLeft: 5,
-                color: theme === "light" ? colors.lightFont : colors.darkFont,
-                "&:hover": {
-                  backgroundColor:
-                    theme === "light"
-                      ? colors.lightButtonBgHover
-                      : colors.darkButtonBgHover,
-                },
-              }}
-              variant={"text"}
-            >
-              <a
-                href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textDecoration: "inherit",
-                  color: "inherit",
-                  fontSize: "14px",
-                }}
-              >
-                Resumé
-              </a>
-            </Button>
-            <MaterialUISwitch onClick={props.toggle} />
-          </div>
-          <NavBar theme={theme} />
-        </div>
-        <div class="top-bar-mobile">
-          <Menu
-            onOpen={() => {
-              setNavPanel(true);
+          {/* Top nav bar / mobile navbar  */}
+          <div
+            class="top-bar-desktop"
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "100%",
+              height: "5%",
+              paddingTop: "10px",
+              alignItems: "center",
             }}
-            isOpen={navPanel}
-            onClose={() => {
-              setNavPanel(false);
-            }}
-            customBurgerIcon={
-              <Hamburger
-                toggled={navPanel}
-                color={theme === "light" ? colors.lightFont : colors.darkFont}
-              />
-            }
-            noOverlay
-            right
-            styles={styles}
           >
-            <NavBar isMobile theme={theme} />
-          </Menu>
-        </div>
-        {/* NAME  */}
-        <div
-          style={{
-            height: "95%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
+            <div>
+              <Button
+                sx={{
+                  height: 40,
+                  borderColor: "black",
+                  marginLeft: 5,
+                  color: theme === "light" ? colors.lightFont : colors.darkFont,
+                  "&:hover": {
+                    backgroundColor:
+                      theme === "light"
+                        ? colors.lightButtonBgHover
+                        : colors.darkButtonBgHover,
+                  },
+                }}
+                variant={"text"}
+              >
+                <a
+                  href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: "inherit",
+                    color: "inherit",
+                    fontSize: "14px",
+                  }}
+                >
+                  Resumé
+                </a>
+              </Button>
+              <MaterialUISwitch onClick={props.toggle} />
+            </div>
+            <NavBar theme={theme} />
+          </div>
+          <div class="top-bar-mobile">
+            <Menu
+              onOpen={() => {
+                setNavPanel(true);
+              }}
+              isOpen={navPanel}
+              onClose={() => {
+                setNavPanel(false);
+              }}
+              customBurgerIcon={
+                <Hamburger
+                  toggled={navPanel}
+                  color={theme === "light" ? colors.lightFont : colors.darkFont}
+                />
+              }
+              noOverlay
+              right
+              styles={styles}
+            >
+              <NavBar isMobile theme={theme} />
+            </Menu>
+          </div>
+          {/* NAME  */}
           <div
             style={{
+              height: "95%",
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               justifyContent: "center",
-              alignItems: "middle",
-              maxWidth: "100%",
-              flexWrap: "wrap",
             }}
           >
-            <h1
+            <div
               style={{
-                color: colors.lightFont,
-                fontSize: "32px",
-                letterSpacing: "20px",
-                textAlign: "middle",
-                maxHeight: "100%",
-                padding: "20px",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "middle",
+                maxWidth: "100%",
+                flexWrap: "wrap",
               }}
             >
-              GABRIELLA{" "}
-            </h1>
-            <h1
+              <h1
+                style={{
+                  color: colors.lightFont,
+                  fontSize: "32px",
+                  letterSpacing: "20px",
+                  textAlign: "middle",
+                  maxHeight: "100%",
+                  padding: "20px",
+                }}
+              >
+                GABRIELLA{" "}
+              </h1>
+              <h1
+                style={{
+                  color: colors.lightFont,
+                  fontSize: "32px",
+                  letterSpacing: "20px",
+                  textAlign: "middle",
+                  padding: "20px",
+                }}
+              >
+                {" "}
+                GERGES
+              </h1>
+            </div>
+          </div>
+        </div>
+        {/* Squiggle line seperator */}
+        <div class="svg-line">
+          <svg width="100%" height="200">
+            <path
+              d={`M0,0 
+           L${maximumX},0   
+           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
+              fill={theme === "light" ? colors.lightBg : colors.darkBg}
+            />
+          </svg>
+          {/* About me  */}
+          <div
+            style={{
+              width: "100%",
+              height: "50vh",
+              backgroundColor: "white",
+              paddingBottom: 250,
+            }}
+          >
+            <div
               style={{
-                color: colors.lightFont,
-                fontSize: "32px",
-                letterSpacing: "20px",
-                textAlign: "middle",
-                padding: "20px",
+                dislay: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+
+                marginLeft: "auto",
+                marginRight: 100,
+
+                width: "20%",
+                //   height: "100%",
+                backgroundColor: colors.pinkBg,
+                paddingTop: 120,
+                paddingBottom: 120,
+                paddingRight: 80,
+                paddingLeft: 80,
+                borderRadius: "50%",
               }}
             >
-              {" "}
-              GERGES
-            </h1>
+              <p
+                style={{
+                  fontSize: 18,
+                }}
+              >
+                I am a results-oriented Software Engineer comfortable switching
+                between architecture, design and implementation. Experienced at
+                working in teams or self-directed environment. Eager to learn
+                and contribute programming expertise to development projects.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      {/* Squiggle line seperator */}
-      <div class="svg-line">
-        <svg width="100%" height="200">
-          <path
-            d={`M0,0 
-           L${maximumX},0   
-           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
-            fill={theme === "light" ? colors.lightBg : colors.darkBg}
-          />
-        </svg>
-        <div
-          style={{ width: "100%", height: "50vh", backgroundColor: "white" }}
-        ></div>
-      </div>
-    </div>
+      <Projects theme={theme} />
+    </>
   );
 }

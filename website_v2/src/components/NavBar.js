@@ -32,7 +32,7 @@ export default function NavBar(props) {
                   ? colors.lightFont
                   : colors.darkFont,
             }}
-            to="/"
+            to="#home"
             onClick={() => {
               setSelectedTab("home");
             }}
@@ -121,7 +121,7 @@ export default function NavBar(props) {
                   ? COLORS.home.lightFont
                   : COLORS.home.darkBg,
             }}
-            to="/"
+            to="#home"
             onClick={() => {
               setSelectedTab("home");
             }}
