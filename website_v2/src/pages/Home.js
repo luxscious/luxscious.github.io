@@ -256,36 +256,6 @@ export default function Home(props) {
               paddingBottom: 250,
             }}
           >
-            <div
-              style={{
-                dislay: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-
-                marginLeft: "auto",
-                marginRight: 100,
-
-                width: "20%",
-                //   height: "100%",
-                backgroundColor: colors.pinkBg,
-                paddingTop: 120,
-                paddingBottom: 120,
-                paddingRight: 80,
-                paddingLeft: 80,
-                borderRadius: "50%",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: 18,
-                }}
-              >
-                I am a results-oriented Software Engineer comfortable switching
-                between architecture, design and implementation. Experienced at
-                working in teams or self-directed environment. Eager to learn
-                and contribute programming expertise to development projects.
-              </p>
-            </div>
           </div>
         </div>
       </div>
