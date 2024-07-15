@@ -1,13 +1,38 @@
 import { Box } from "@mui/system";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { COLORS } from "../constants";
 
 export default function NavBar(props) {
   const [selectedTab, setSelectedTab] = useState("home");
+  const [navbarColor, setNavbarColor] = useState("transparent");
   const theme = props.theme;
   const colors = COLORS.navbar;
   const isFullWidth = !props.isMobile;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.getElementById("navbar");
+      const elementBelowNavbar = document.getElementById("element-below-navbar");
+
+      if (navbar && elementBelowNavbar) {
+        const { backgroundColor } = getComputedStyle(elementBelowNavbar);
+        setNavbarColor(backgroundColor);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const getFontColor = (tab) => {
+    if (selectedTab === tab) {
+      return theme === "light" ? colors.lightSelectedFont : colors.darkSelectedFont;
+    } else {
+      return theme === "light" ? colors.lightFont : colors.darkFont;
+    }
+  };
+
 
   if (isFullWidth) {
     return (
@@ -23,14 +48,7 @@ export default function NavBar(props) {
           <Link
             style={{
               textDecoration: "none",
-              color:
-                selectedTab === "home"
-                  ? theme === "light"
-                    ? colors.lightSelectedFont
-                    : colors.darkSelectedFont
-                  : theme === "light"
-                  ? colors.lightFont
-                  : colors.darkFont,
+              color: getFontColor("home"),         
             }}
             to="#home"
             onClick={() => {
