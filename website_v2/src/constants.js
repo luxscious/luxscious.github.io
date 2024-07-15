@@ -8,6 +8,10 @@ export const COLORS = {
     darkButtonBgHover: "#f3e09540",
     pinkBg: "#F3E2F4",
   },
+  timeline: {
+    lightBg: "#9cbade",
+    darkBg: "#1b2124",
+  },
   navbar: {
     darkFont: "white",
     lightFont: "black",

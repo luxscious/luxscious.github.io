@@ -1,11 +1,13 @@
-.svg-line {
-  width: "100%";
-}
-
 .home-container--light {
   background-color: #f3e095;
 }
 .home-container--dark {
+  background-color: #1b2124;
+}
+.timeline-container--light {
+  background-color: #9cbade;
+}
+.timeline-container--dark {
   background-color: #1b2124;
 }
 

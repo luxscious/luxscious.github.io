@@ -8,7 +8,11 @@ import { Box } from "@mui/system";
 import Button from "@mui/material/Button";
 import { elastic as Menu } from "react-burger-menu";
 import Hamburger from "hamburger-react";
-import Projects from "./Projects";
+import Logo from "../components/Logo.js";
+import timelineInfo from "../assets/timeline.json";
+import { ReactComponent as Circle } from "../assets/circle.svg";
+import { ReactComponent as Line } from "../assets/line.svg";
+
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -59,6 +63,7 @@ export default function Home(props) {
   const [maximumX, setMaximumX] = useState(window.innerWidth);
   const theme = props.theme;
   const colors = COLORS.home;
+  const timelineColors = COLORS.timeline;
   const [navPanel, setNavPanel] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -71,7 +76,7 @@ export default function Home(props) {
       });
     };
   }, []);
-  console.log(navPanel);
+
   var styles = {
     bmBurgerButton: {
       position: "fixed",
@@ -203,93 +208,195 @@ export default function Home(props) {
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "middle",
+                flexDirection: "column",
+                alignItems: "center",
                 maxWidth: "100%",
                 flexWrap: "wrap",
               }}
             >
-              <h1
+              {/* Logo */}
+              <div
                 style={{
-                  color: colors.lightFont,
-                  fontSize: "32px",
-                  letterSpacing: "20px",
-                  textAlign: "middle",
-                  maxHeight: "100%",
-                  padding: "20px",
+                  width: 200,
+                  height: 200,
+                  margin: 0,
                 }}
               >
-                GABRIELLA{" "}
-              </h1>
-              <h1
+                <Logo />
+              </div>
+              {/* name */}
+              <div
                 style={{
-                  color: colors.lightFont,
-                  fontSize: "32px",
-                  letterSpacing: "20px",
-                  textAlign: "middle",
-                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "row",
                 }}
               >
-                {" "}
-                GERGES
-              </h1>
+                <h1
+                  style={{
+                    color: colors.lightFont,
+                    fontSize: "32px",
+                    letterSpacing: "20px",
+                    textAlign: "middle",
+                    maxHeight: "100%",
+                    padding: "20px",
+                  }}
+                >
+                  GABRIELLA{" "}
+                </h1>
+                <h1
+                  style={{
+                    color: colors.lightFont,
+                    fontSize: "32px",
+                    letterSpacing: "20px",
+                    textAlign: "middle",
+                    padding: "20px",
+                  }}
+                >
+                  {" "}
+                  GERGES
+                </h1>
+              </div>
             </div>
           </div>
         </div>
         {/* Squiggle line seperator */}
-        <div class="svg-line">
-          <svg width="100%" height="200">
-            <path
-              d={`M0,0 
+        <svg width="100%" height="200">
+          <path
+            d={`M0,0 
            L${maximumX},0   
            C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
-              fill={theme === "light" ? colors.lightBg : colors.darkBg}
-            />
-          </svg>
-          {/* About me  */}
+            fill={theme === "light" ? colors.lightBg : colors.darkBg}
+          />
+        </svg>
+        {/* About me  */} <h1>Info stuff!</h1>
+        <div
+          style={{
+            width: "100%",
+            height: "25vh",
+            backgroundColor: "white",
+            // paddingBottom: 250,
+          }}
+        ></div>
+        {/* Squiggle Line separator for timeline */}
+        <svg
+          width="100%"
+          height="200"
+          viewBox={`0 0 ${maximumX} 200`}
+          preserveAspectRatio="none"
+          style={{ display: "block", margin: 0, padding: 0 }}
+        >
+          <path
+            d={`M0,200 
+         L${maximumX},200   
+         C${maximumX / 2},0 ${maximumX / 2},200  0,0z`}
+            fill={
+              theme === "light" ? timelineColors.lightBg : timelineColors.darkBg
+            }
+          />
+        </svg>
+        <>
+          {/* $Timeline */}
           <div
             style={{
               width: "100%",
-              height: "50vh",
-              backgroundColor: "white",
+              marginTop: 0,
+              backgroundColor:
+                theme === "light"
+                  ? timelineColors.lightBg
+                  : timelineColors.darkBg,
               paddingBottom: 250,
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
             }}
           >
             <div
               style={{
-                dislay: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-
-                marginLeft: "auto",
-                marginRight: 100,
-
-                width: "20%",
-                //   height: "100%",
-                backgroundColor: colors.pinkBg,
-                paddingTop: 120,
-                paddingBottom: 120,
-                paddingRight: 80,
-                paddingLeft: 80,
-                borderRadius: "50%",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                paddingLeft: 40,
               }}
             >
-              <p
+              <div style={{ width: 50, height: 50 }}>
+                <Logo />
+              </div>
+              <h1
                 style={{
-                  fontSize: 18,
+                  color: "white",
+                  fontSize: 24,
+                  letterSpacing: "6px",
+                  paddingLeft: 5,
                 }}
               >
-                I am a results-oriented Software Engineer comfortable switching
-                between architecture, design and implementation. Experienced at
-                working in teams or self-directed environment. Eager to learn
-                and contribute programming expertise to development projects.
-              </p>
+                Timeline
+              </h1>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+                alignSelf: "flex-start",
+              }}
+            >
+              {/*Map experiences in chronological order*/}
+              {timelineInfo.map((experience, index) => (
+                <div
+                  style={{
+                    flexDirection: "column",
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                    color: "white",
+                  }}
+                >
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      width: "100%",
+                      alignItems: "flex-end",
+                      marginTop: "-5px",
+                    }}
+                  >
+                    <h1
+                      style={{
+                        fontSize: 18,
+                        fontFamily: "Rock Salt",
+                        flex: 1,
+                        textAlign: "right", // Align text to the right
+                        paddingRight: 20,
+                        letterSpacing: "6px",
+                      }}
+                    >
+                      {experience.date}
+                    </h1>
+                    <Circle style={{ alignSelf: "flex-end" }} />
+                    <h1
+                      style={{
+                        fontSize: 24,
+                        letterSpacing: "6px",
+                        flex: 1,
+                        textAlign: "left", // Align text to the left
+                        paddingLeft: 20,
+                      }}
+                    >
+                      {experience.name}
+                    </h1>
+                  </div>
+                  {index !== timelineInfo.length - 1 ? (
+                    <Line style={{ height: "200px" }} />
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </>
       </div>
-      <Projects theme={theme} />
     </>
   );
 }
