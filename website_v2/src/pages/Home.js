@@ -12,6 +12,8 @@ import Logo from "../components/Logo.js";
 import timelineInfo from "../assets/timeline.json";
 import { ReactComponent as Circle } from "../assets/circle.svg";
 import { ReactComponent as Line } from "../assets/line.svg";
+import pfp from "../assets/pfp.jpeg";
+import Typewriter from "../components/Typewriter.js";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -268,7 +270,55 @@ export default function Home(props) {
             fill={theme === "light" ? colors.lightBg : colors.darkBg}
           />
         </svg>
-        {/* About me  */} <h1>Info stuff!</h1>
+
+        {/*About Me*/}
+        <div
+          style={{
+            display: "flex",
+            backgroundColor: "red",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              // width: "100%",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                fontFamily: "Rock Salt",
+                // width: "30%",
+                // backgroundColor: "black",
+              }}
+            >
+              {/* HI typed */}
+              <Typewriter
+                text={"Hi..."}
+                delay={400}
+                infinite={true}
+                style={{ fontSize: 32 }}
+              />
+              {/* paragraph typed */}
+              <p style={{ fontSize: 14 }}>
+                I am super super awesome. nice to meet you I love software
+                engineering. yessss. More awesome things. Feel Free to connect!
+              </p>
+              {/* connect links */}
+              <h1>links</h1>
+            </div>
+
+            {/* pic */}
+            <div style={{ display: "flex" }}>
+              <img maxWidth={300} maxHeight={300} src={pfp} />
+            </div>
+          </div>
+        </div>
+
         <div
           style={{
             width: "100%",
