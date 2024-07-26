@@ -14,7 +14,7 @@ export const COLORS = {
   },
   navbar: {
     darkFont: "white",
-    lightFont: "black",
+    lightFont: "white",
     darkSelectedFont: "#f3e095",
     lightSelectedFont: "#C3B789",
   },

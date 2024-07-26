@@ -13,7 +13,9 @@ export default function NavBar(props) {
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.getElementById("navbar");
-      const elementBelowNavbar = document.getElementById("element-below-navbar");
+      const elementBelowNavbar = document.getElementById(
+        "element-below-navbar"
+      );
 
       if (navbar && elementBelowNavbar) {
         const { backgroundColor } = getComputedStyle(elementBelowNavbar);
@@ -27,12 +29,13 @@ export default function NavBar(props) {
 
   const getFontColor = (tab) => {
     if (selectedTab === tab) {
-      return theme === "light" ? colors.lightSelectedFont : colors.darkSelectedFont;
+      return theme === "light"
+        ? colors.lightSelectedFont
+        : colors.darkSelectedFont;
     } else {
       return theme === "light" ? colors.lightFont : colors.darkFont;
     }
   };
-
 
   if (isFullWidth) {
     return (
@@ -42,13 +45,18 @@ export default function NavBar(props) {
           flexDirection: "row",
           position: "absolute",
           right: 0,
+          marginRight: "40px",
         }}
       >
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
-              color: getFontColor("home"),         
+              color: getFontColor("home"),
             }}
             to="#home"
             onClick={() => {
@@ -61,9 +69,13 @@ export default function NavBar(props) {
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
               color:
-                selectedTab === "portfolio"
+                selectedTab === "accomplishments"
                   ? theme === "light"
                     ? colors.lightSelectedFont
                     : colors.darkSelectedFont
@@ -73,18 +85,22 @@ export default function NavBar(props) {
             }}
             to="/"
             onClick={() => {
-              setSelectedTab("portfolio");
+              setSelectedTab("accomplishments");
             }}
           >
-            PORTFOLIO
+            ACCOMPLISMENTS
           </Link>
         </Box>
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
               color:
-                selectedTab === "contact"
+                selectedTab === "hobbies"
                   ? theme === "light"
                     ? colors.lightSelectedFont
                     : colors.darkSelectedFont
@@ -94,31 +110,10 @@ export default function NavBar(props) {
             }}
             to="/"
             onClick={() => {
-              setSelectedTab("contact");
+              setSelectedTab("hobbies");
             }}
           >
-            CONTACT
-          </Link>
-        </Box>
-        <Box sx={{ paddingX: 2 }}>
-          <Link
-            style={{
-              textDecoration: "none",
-              color:
-                selectedTab === "skills"
-                  ? theme === "light"
-                    ? colors.lightSelectedFont
-                    : colors.darkSelectedFont
-                  : theme === "light"
-                  ? colors.lightFont
-                  : colors.darkFont,
-            }}
-            to="/"
-            onClick={() => {
-              setSelectedTab("skills");
-            }}
-          >
-            SKILLS
+            HOBBIES
           </Link>
         </Box>
       </Box>
@@ -129,6 +124,10 @@ export default function NavBar(props) {
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
               color:
                 selectedTab === "home"
@@ -150,9 +149,13 @@ export default function NavBar(props) {
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
               color:
-                selectedTab === "portfolio"
+                selectedTab === "accomplishments"
                   ? theme === "light"
                     ? colors.lightSelectedFont
                     : colors.lightSelectedFont
@@ -162,18 +165,22 @@ export default function NavBar(props) {
             }}
             to="/"
             onClick={() => {
-              setSelectedTab("portfolio");
+              setSelectedTab("accomplishments");
             }}
           >
-            PORTFOLIO
+            ACCOMPLISMENTS
           </Link>
         </Box>
         <Box sx={{ paddingX: 2 }}>
           <Link
             style={{
+              fontFamily: "Roboto",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
               textDecoration: "none",
               color:
-                selectedTab === "contact"
+                selectedTab === "hobbies"
                   ? theme === "light"
                     ? colors.lightSelectedFont
                     : colors.lightSelectedFont
@@ -183,31 +190,10 @@ export default function NavBar(props) {
             }}
             to="/"
             onClick={() => {
-              setSelectedTab("contact");
+              setSelectedTab("hobbies");
             }}
           >
-            CONTACT
-          </Link>
-        </Box>
-        <Box sx={{ paddingX: 2 }}>
-          <Link
-            style={{
-              textDecoration: "none",
-              color:
-                selectedTab === "skills"
-                  ? theme === "light"
-                    ? colors.lightSelectedFont
-                    : colors.lightSelectedFont
-                  : theme === "light"
-                  ? COLORS.home.lightFont
-                  : COLORS.home.darkBg,
-            }}
-            to="/"
-            onClick={() => {
-              setSelectedTab("skills");
-            }}
-          >
-            SKILLS
+            HOBBIES
           </Link>
         </Box>
       </>
