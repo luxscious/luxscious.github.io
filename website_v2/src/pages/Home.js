@@ -17,6 +17,7 @@ import Typewriter from "../components/Typewriter.js";
 import { ReactComponent as LinkedIn } from "../assets/linkedin.svg";
 import { ReactComponent as Github } from "../assets/github.svg";
 import { ReactComponent as Devpost } from "../assets/devpost.svg";
+import { ReactComponent as LogoSmall } from "../assets/logo.svg";
 import AnimatedIcon from "../components/AnimatedIcon.js";
 import aboutMeInfo from "../assets/aboutMe.json";
 
@@ -413,7 +414,7 @@ export default function Home(props) {
               }}
             >
               <div style={{ width: 50, height: 50 }}>
-                <Logo />
+                <LogoSmall />
               </div>
               <h1
                 style={{

@@ -1,9 +1,10 @@
 import React from "react";
 import { ReactComponent as Svg } from "../assets/logo.svg";
+import "../styles/Logo.css";
 
 const Logo = () => (
-  <div>
-    <Svg />
+  <div className="logo-container">
+    <Svg className="logo-svg" />
   </div>
 );
 
