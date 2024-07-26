@@ -16,6 +16,7 @@ import pfp from "../assets/pfp.jpeg";
 import Typewriter from "../components/Typewriter.js";
 import { ReactComponent as LinkedIn } from "../assets/linkedin.svg";
 import { ReactComponent as Github } from "../assets/github.svg";
+import { ReactComponent as Devpost } from "../assets/devpost.svg";
 import AnimatedIcon from "../components/AnimatedIcon.js";
 import aboutMeInfo from "../assets/aboutMe.json";
 
@@ -341,6 +342,16 @@ export default function Home(props) {
                   onClick={"https://www.linkedin.com/in/gabriella-gerges/"}
                 >
                   <LinkedIn />
+                </AnimatedIcon>
+                <AnimatedIcon
+                  width={64}
+                  height={64}
+                  style={{ marginTop: -2 }}
+                  onClick={
+                    "https://devpost.com/luxscious?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
+                  }
+                >
+                  <Devpost />
                 </AnimatedIcon>
               </div>
             </div>

@@ -6,7 +6,7 @@ const AnimatedIcon = (props) => {
   return (
     // eslint-disable-next-line react/jsx-no-target-blank
     <a href={props.onClick} className="icon-container" target="_blank">
-      <Icon width={props.width} height={props.height}>
+      <Icon width={props.width} height={props.height} style={props.style}>
         {props.children}
       </Icon>
     </a>
