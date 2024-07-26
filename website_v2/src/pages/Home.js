@@ -14,6 +14,10 @@ import { ReactComponent as Circle } from "../assets/circle.svg";
 import { ReactComponent as Line } from "../assets/line.svg";
 import pfp from "../assets/pfp.jpeg";
 import Typewriter from "../components/Typewriter.js";
+import { ReactComponent as LinkedIn } from "../assets/linkedin.svg";
+import { ReactComponent as Github } from "../assets/github.svg";
+import AnimatedIcon from "../components/AnimatedIcon.js";
+import aboutMeInfo from "../assets/aboutMe.json";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -275,7 +279,6 @@ export default function Home(props) {
         <div
           style={{
             display: "flex",
-            backgroundColor: "red",
             justifyContent: "center",
           }}
         >
@@ -291,9 +294,9 @@ export default function Home(props) {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                fontFamily: "Rock Salt",
-                // width: "30%",
-                // backgroundColor: "black",
+                fontFamily: "Playwrite AT",
+                paddingLeft: "20%",
+                paddingRight: "10%",
               }}
             >
               {/* HI typed */}
@@ -301,20 +304,50 @@ export default function Home(props) {
                 text={"Hi..."}
                 delay={400}
                 infinite={true}
-                style={{ fontSize: 32 }}
+                style={{
+                  fontSize: 50,
+                  height: "64px", //its fontsize * 2 pixels?
+                }}
               />
               {/* paragraph typed */}
-              <p style={{ fontSize: 14 }}>
-                I am super super awesome. nice to meet you I love software
-                engineering. yessss. More awesome things. Feel Free to connect!
+              <p
+                style={{
+                  fontSize: 20,
+                  fontFamily: "Shantell Sans",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                }}
+              >
+                {aboutMeInfo.text}
               </p>
               {/* connect links */}
-              <h1>links</h1>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "100%",
+                }}
+              >
+                <AnimatedIcon
+                  width={30}
+                  height={30}
+                  onClick={"https://github.com/luxscious"}
+                >
+                  <Github />
+                </AnimatedIcon>
+                <AnimatedIcon
+                  width={30}
+                  height={30}
+                  onClick={"https://www.linkedin.com/in/gabriella-gerges/"}
+                >
+                  <LinkedIn />
+                </AnimatedIcon>
+              </div>
             </div>
 
             {/* pic */}
-            <div style={{ display: "flex" }}>
-              <img maxWidth={300} maxHeight={300} src={pfp} />
+            <div style={{ display: "flex", paddingRight: "5%" }}>
+              <img maxWidth={200} maxHeight={200} alt={"Me"} src={pfp} />
             </div>
           </div>
         </div>
