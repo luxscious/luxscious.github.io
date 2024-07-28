@@ -72,6 +72,7 @@ export default function Home(props) {
   const theme = props.theme;
   const colors = COLORS.home;
   const timelineColors = COLORS.timeline;
+  const footerColors = COLORS.footer;
   const [navPanel, setNavPanel] = useState(false);
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -491,6 +492,49 @@ export default function Home(props) {
             </div>
           </div>
         </>
+        {/* Squiggle Line separator for Footer */}
+        <div
+          style={{
+            backgroundColor:
+              theme === "light" ? footerColors.lightBg : footerColors.darkBg,
+          }}
+        >
+          <svg
+            width="100%"
+            height="200"
+            viewBox={`0 0 ${maximumX} 200`}
+            preserveAspectRatio="none"
+            style={{ display: "block", margin: 0, padding: 0 }}
+          >
+            <path
+              d={`M0,0 
+           L${maximumX},0   
+           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
+              fill={
+                theme === "light"
+                  ? timelineColors.lightBg
+                  : timelineColors.darkBg
+              }
+            />
+          </svg>
+          <div
+            style={{
+              // height: "100px",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "row",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "Rock Salt",
+                color: "white",
+              }}
+            >
+              made by: Gabriella Gerges, 2024
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

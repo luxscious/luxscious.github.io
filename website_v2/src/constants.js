@@ -12,6 +12,10 @@ export const COLORS = {
     lightBg: "#9cbade",
     darkBg: "#1b2124",
   },
+  footer: {
+    lightBg: "#89E1A0",
+    darkBg: "#233922",
+  },
   navbar: {
     darkFont: "white",
     lightFont: "white",
