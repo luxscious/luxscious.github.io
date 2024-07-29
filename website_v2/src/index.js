@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-import { createContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import smoothscroll from "smoothscroll-polyfill";
+
+// Kick off the polyfill!
+smoothscroll.polyfill();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
