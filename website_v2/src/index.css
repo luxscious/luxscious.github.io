@@ -20,3 +20,11 @@ html {
   font-size: 12px;
   scroll-behavior: smooth;
 }
+.navbar-white {
+  color: white;
+  /* mix-blend-mode: difference; Adjusts color based on background */
+}
+
+.navbar-black {
+  color: black;
+}

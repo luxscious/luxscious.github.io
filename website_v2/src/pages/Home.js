@@ -131,249 +131,368 @@ export default function Home(props) {
   };
   return (
     <>
-      <div id="home">
+      <div
+        class={`home-container home-container--${
+          theme === "light" ? "light" : "dark"
+        }`}
+      >
+        {/* Top nav bar / mobile navbar  */}
         <div
-          id="page-wrap"
-          class={`home-container home-container--${
-            theme === "light" ? "light" : "dark"
-          }`}
+          class="top-bar-desktop"
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            width: "100%",
+            height: "5%",
+            paddingTop: "10px",
+            alignItems: "center",
+          }}
         >
-          {/* Top nav bar / mobile navbar  */}
-          <div
-            class="top-bar-desktop"
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              width: "100%",
-              height: "5%",
-              paddingTop: "10px",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <Button
-                sx={{
-                  height: 40,
-                  borderColor: "black",
-                  marginLeft: 5,
-                  color: theme === "light" ? colors.lightFont : colors.darkFont,
-                  "&:hover": {
-                    backgroundColor:
-                      theme === "light"
-                        ? colors.lightButtonBgHover
-                        : colors.darkButtonBgHover,
-                  },
-                }}
-                variant={"text"}
-              >
-                <a
-                  href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    textDecoration: "inherit",
-                    color: "inherit",
-                    fontSize: "14px",
-                  }}
-                >
-                  Resumé
-                </a>
-              </Button>
-              <MaterialUISwitch onClick={props.toggle} />
-            </div>
-            <NavBar theme={theme} />
-          </div>
-          <div class="top-bar-mobile">
-            <Menu
-              onOpen={() => {
-                setNavPanel(true);
+          <div>
+            <Button
+              sx={{
+                height: 40,
+                borderColor: "black",
+                marginLeft: 5,
+                color: theme === "light" ? colors.lightFont : colors.darkFont,
+                "&:hover": {
+                  backgroundColor:
+                    theme === "light"
+                      ? colors.lightButtonBgHover
+                      : colors.darkButtonBgHover,
+                },
               }}
-              isOpen={navPanel}
-              onClose={() => {
-                setNavPanel(false);
-              }}
-              customBurgerIcon={
-                <Hamburger
-                  toggled={navPanel}
-                  color={theme === "light" ? colors.lightFont : colors.darkFont}
-                />
-              }
-              noOverlay
-              right
-              styles={styles}
+              variant={"text"}
             >
-              <NavBar isMobile theme={theme} />
-            </Menu>
-          </div>
-          {/* NAME  */}
-          <div
-            style={{
-              height: "95%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                maxWidth: "100%",
-                flexWrap: "wrap",
-              }}
-            >
-              {/* Logo */}
-              <div
+              <a
+                href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  width: 200,
-                  height: 200,
-                  margin: 0,
+                  textDecoration: "inherit",
+                  color: "inherit",
+                  fontSize: "14px",
                 }}
               >
-                <Logo />
-              </div>
-              {/* name */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <h1
-                  style={{
-                    color: colors.lightFont,
-                    fontSize: "32px",
-                    letterSpacing: "20px",
-                    textAlign: "middle",
-                    maxHeight: "100%",
-                    padding: "20px",
-                  }}
-                >
-                  GABRIELLA{" "}
-                </h1>
-                <h1
-                  style={{
-                    color: colors.lightFont,
-                    fontSize: "32px",
-                    letterSpacing: "20px",
-                    textAlign: "middle",
-                    padding: "20px",
-                  }}
-                >
-                  {" "}
-                  GERGES
-                </h1>
-              </div>
-            </div>
+                Resumé
+              </a>
+            </Button>
+            <MaterialUISwitch onClick={props.toggle} />
           </div>
+          <NavBar theme={theme} />
         </div>
-        {/* Squiggle line seperator */}
-        <svg width="100%" height="200">
-          <path
-            d={`M0,0 
-           L${maximumX},0   
-           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
-            fill={theme === "light" ? colors.lightBg : colors.darkBg}
-          />
-        </svg>
-
-        {/*About Me*/}
+        <div class="top-bar-mobile">
+          <Menu
+            onOpen={() => {
+              setNavPanel(true);
+            }}
+            isOpen={navPanel}
+            onClose={() => {
+              setNavPanel(false);
+            }}
+            customBurgerIcon={
+              <Hamburger
+                toggled={navPanel}
+                color={theme === "light" ? colors.lightFont : colors.darkFont}
+              />
+            }
+            noOverlay
+            right
+            styles={styles}
+          >
+            <NavBar isMobile theme={theme} />
+          </Menu>
+        </div>
+        {/* NAME  */}
         <div
           style={{
+            height: "95%",
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
           }}
         >
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
-              // width: "100%",
+              flexDirection: "column",
               alignItems: "center",
+              maxWidth: "100%",
+              flexWrap: "wrap",
             }}
           >
+            {/* Logo */}
+            <div
+              style={{
+                width: 200,
+                height: 200,
+                margin: 0,
+              }}
+            >
+              <Logo />
+            </div>
+            {/* name */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                fontFamily: "Playwrite AT",
-                paddingLeft: "20%",
-                paddingRight: "10%",
+                flexDirection: "row",
               }}
             >
-              {/* HI typed */}
-              <Typewriter
-                text={"Hi..."}
-                delay={400}
-                infinite={true}
+              <h1
                 style={{
-                  fontSize: 50,
-                  height: "64px", //its fontsize * 2 pixels?
-                }}
-              />
-              {/* paragraph typed */}
-              <p
-                style={{
-                  fontSize: 20,
-                  fontFamily: "Shantell Sans",
-                  fontStyle: "italic",
-                  fontWeight: 300,
+                  color: colors.lightFont,
+                  fontSize: "32px",
+                  letterSpacing: "20px",
+                  textAlign: "middle",
+                  maxHeight: "100%",
+                  padding: "20px",
                 }}
               >
-                {aboutMeInfo.text}
-              </p>
-              {/* connect links */}
-              <div
+                GABRIELLA{" "}
+              </h1>
+              <h1
                 style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  width: "100%",
+                  color: colors.lightFont,
+                  fontSize: "32px",
+                  letterSpacing: "20px",
+                  textAlign: "middle",
+                  padding: "20px",
                 }}
               >
-                <AnimatedIcon
-                  width={30}
-                  height={30}
-                  onClick={"https://github.com/luxscious"}
-                >
-                  <Github />
-                </AnimatedIcon>
-                <AnimatedIcon
-                  width={30}
-                  height={30}
-                  onClick={"https://www.linkedin.com/in/gabriella-gerges/"}
-                >
-                  <LinkedIn />
-                </AnimatedIcon>
-                <AnimatedIcon
-                  width={64}
-                  height={64}
-                  style={{ marginTop: -2 }}
-                  onClick={
-                    "https://devpost.com/luxscious?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
-                  }
-                >
-                  <Devpost />
-                </AnimatedIcon>
-              </div>
-            </div>
-
-            {/* pic */}
-            <div style={{ display: "flex", paddingRight: "5%" }}>
-              <img maxWidth={200} maxHeight={200} alt={"Me"} src={pfp} />
+                {" "}
+                GERGES
+              </h1>
             </div>
           </div>
         </div>
+      </div>
+      {/* Squiggle line seperator */}
+      <svg width="100%" height="200" class="section">
+        <path
+          d={`M0,0 
+           L${maximumX},0   
+           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
+          fill={theme === "light" ? colors.lightBg : colors.darkBg}
+        />
+      </svg>
 
+      {/*About Me*/}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "white",
+          paddingTop: "100px",
+          paddingBottom: "100px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            // width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontFamily: "Playwrite AT",
+              paddingLeft: "20%",
+              paddingRight: "10%",
+            }}
+          >
+            {/* HI typed */}
+            <Typewriter
+              text={"Hi..."}
+              delay={400}
+              infinite={true}
+              style={{
+                fontSize: 50,
+                height: "64px", //its fontsize * 2 pixels?
+              }}
+            />
+            {/* paragraph typed */}
+            <p
+              style={{
+                fontSize: 20,
+                fontFamily: "Shantell Sans",
+                fontStyle: "italic",
+                fontWeight: 300,
+              }}
+            >
+              {aboutMeInfo.text}
+            </p>
+            {/* connect links */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                width: "100%",
+              }}
+            >
+              <AnimatedIcon
+                width={30}
+                height={30}
+                onClick={"https://github.com/luxscious"}
+              >
+                <Github />
+              </AnimatedIcon>
+              <AnimatedIcon
+                width={30}
+                height={30}
+                onClick={"https://www.linkedin.com/in/gabriella-gerges/"}
+              >
+                <LinkedIn />
+              </AnimatedIcon>
+              <AnimatedIcon
+                width={64}
+                height={64}
+                style={{ marginTop: -2 }}
+                onClick={
+                  "https://devpost.com/luxscious?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
+                }
+              >
+                <Devpost />
+              </AnimatedIcon>
+            </div>
+          </div>
+
+          {/* pic */}
+          <div style={{ display: "flex", paddingRight: "5%" }}>
+            <img maxWidth={200} maxHeight={200} alt={"Me"} src={pfp} />
+          </div>
+        </div>
+      </div>
+
+      {/* Squiggle Line separator for timeline */}
+      <svg
+        class="section"
+        width="100%"
+        height="200"
+        viewBox={`0 0 ${maximumX} 200`}
+        preserveAspectRatio="none"
+        style={{ display: "block", margin: 0, padding: 0 }}
+      >
+        <path
+          d={`M0,200 
+         L${maximumX},200   
+         C${maximumX / 2},0 ${maximumX / 2},200  0,0z`}
+          fill={
+            theme === "light" ? timelineColors.lightBg : timelineColors.darkBg
+          }
+        />
+      </svg>
+      <>
+        {/* $Timeline */}
         <div
           style={{
             width: "100%",
-            height: "25vh",
-            backgroundColor: "white",
-            // paddingBottom: 250,
+            marginTop: 0,
+            backgroundColor:
+              theme === "light"
+                ? timelineColors.lightBg
+                : timelineColors.darkBg,
+            paddingBottom: 250,
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
           }}
-        ></div>
-        {/* Squiggle Line separator for timeline */}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              paddingLeft: 40,
+            }}
+          >
+            <div style={{ width: 50, height: 50 }}>
+              <LogoSmall />
+            </div>
+            <h1
+              style={{
+                color: "white",
+                fontSize: 24,
+                letterSpacing: "6px",
+                paddingLeft: 5,
+              }}
+            >
+              Timeline
+            </h1>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              alignSelf: "flex-start",
+            }}
+          >
+            {/*Map experiences in chronological order*/}
+            {timelineInfo.map((experience, index) => (
+              <div
+                style={{
+                  flexDirection: "column",
+                  display: "flex",
+                  alignItems: "center",
+                  width: "100%",
+                  color: "white",
+                }}
+              >
+                <div
+                  key={index}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "100%",
+                    alignItems: "flex-end",
+                    marginTop: "-5px",
+                  }}
+                >
+                  <h1
+                    style={{
+                      fontSize: 18,
+                      fontFamily: "Rock Salt",
+                      flex: 1,
+                      textAlign: "right", // Align text to the right
+                      paddingRight: 20,
+                      letterSpacing: "6px",
+                    }}
+                  >
+                    {experience.date}
+                  </h1>
+                  <Circle style={{ alignSelf: "flex-end" }} />
+                  <h1
+                    style={{
+                      fontSize: 24,
+                      letterSpacing: "6px",
+                      flex: 1,
+                      textAlign: "left", // Align text to the left
+                      paddingLeft: 20,
+                    }}
+                  >
+                    {experience.name}
+                  </h1>
+                </div>
+                {index !== timelineInfo.length - 1 ? (
+                  <Line style={{ height: "200px" }} />
+                ) : (
+                  <></>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+      {/* Squiggle Line separator for Footer */}
+      <div
+        style={{
+          backgroundColor:
+            theme === "light" ? footerColors.lightBg : footerColors.darkBg,
+        }}
+      >
         <svg
           width="100%"
           height="200"
@@ -382,158 +501,30 @@ export default function Home(props) {
           style={{ display: "block", margin: 0, padding: 0 }}
         >
           <path
-            d={`M0,200 
-         L${maximumX},200   
-         C${maximumX / 2},0 ${maximumX / 2},200  0,0z`}
+            d={`M0,0 
+           L${maximumX},0   
+           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
             fill={
               theme === "light" ? timelineColors.lightBg : timelineColors.darkBg
             }
           />
         </svg>
-        <>
-          {/* $Timeline */}
-          <div
-            style={{
-              width: "100%",
-              marginTop: 0,
-              backgroundColor:
-                theme === "light"
-                  ? timelineColors.lightBg
-                  : timelineColors.darkBg,
-              paddingBottom: 250,
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                paddingLeft: 40,
-              }}
-            >
-              <div style={{ width: 50, height: 50 }}>
-                <LogoSmall />
-              </div>
-              <h1
-                style={{
-                  color: "white",
-                  fontSize: 24,
-                  letterSpacing: "6px",
-                  paddingLeft: 5,
-                }}
-              >
-                Timeline
-              </h1>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                alignSelf: "flex-start",
-              }}
-            >
-              {/*Map experiences in chronological order*/}
-              {timelineInfo.map((experience, index) => (
-                <div
-                  style={{
-                    flexDirection: "column",
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                    color: "white",
-                  }}
-                >
-                  <div
-                    key={index}
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      width: "100%",
-                      alignItems: "flex-end",
-                      marginTop: "-5px",
-                    }}
-                  >
-                    <h1
-                      style={{
-                        fontSize: 18,
-                        fontFamily: "Rock Salt",
-                        flex: 1,
-                        textAlign: "right", // Align text to the right
-                        paddingRight: 20,
-                        letterSpacing: "6px",
-                      }}
-                    >
-                      {experience.date}
-                    </h1>
-                    <Circle style={{ alignSelf: "flex-end" }} />
-                    <h1
-                      style={{
-                        fontSize: 24,
-                        letterSpacing: "6px",
-                        flex: 1,
-                        textAlign: "left", // Align text to the left
-                        paddingLeft: 20,
-                      }}
-                    >
-                      {experience.name}
-                    </h1>
-                  </div>
-                  {index !== timelineInfo.length - 1 ? (
-                    <Line style={{ height: "200px" }} />
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-        {/* Squiggle Line separator for Footer */}
         <div
           style={{
-            backgroundColor:
-              theme === "light" ? footerColors.lightBg : footerColors.darkBg,
+            // height: "100px",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
           }}
         >
-          <svg
-            width="100%"
-            height="200"
-            viewBox={`0 0 ${maximumX} 200`}
-            preserveAspectRatio="none"
-            style={{ display: "block", margin: 0, padding: 0 }}
-          >
-            <path
-              d={`M0,0 
-           L${maximumX},0   
-           C${maximumX / 2},200 ${maximumX / 2},0  0,200z`}
-              fill={
-                theme === "light"
-                  ? timelineColors.lightBg
-                  : timelineColors.darkBg
-              }
-            />
-          </svg>
-          <div
+          <p
             style={{
-              // height: "100px",
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "row",
+              fontFamily: "Rock Salt",
+              color: "white",
             }}
           >
-            <p
-              style={{
-                fontFamily: "Rock Salt",
-                color: "white",
-              }}
-            >
-              made by: Gabriella Gerges, 2024
-            </p>
-          </div>
+            made by: Gabriella Gerges, 2024
+          </p>
         </div>
       </div>
     </>
