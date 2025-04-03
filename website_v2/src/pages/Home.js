@@ -361,7 +361,7 @@ export default function Home(props) {
         >
           <FloatingBackground />
           {/* {Work}  */}
-          <div style={{ width: "60vw", paddingBottom: 100, zIndex: 1 }}>
+          <div style={{ width: "60vw", paddingBottom: 250, zIndex: 1 }}>
             <div
               style={{
                 display: "flex",
@@ -402,7 +402,7 @@ export default function Home(props) {
           </div>
 
           {/* {Projects}  */}
-          <div style={{ width: "60vw", zIndex: 1 }}>
+          <div id="projects" style={{ width: "60vw", zIndex: 1 }}>
             <div
               style={{
                 display: "flex",
