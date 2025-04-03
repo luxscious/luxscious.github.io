@@ -25,10 +25,8 @@ export default function NavBar(props) {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log("Intersecting section:", entry.target);
           const index = Array.from(sections).indexOf(entry.target);
-          console.log("Section index:", index);
-          // Toggle the navbar class whenever a section is intersected
+
           setNavBarClass((prevClass) =>
             prevClass === "navbar-white" ? "navbar-black" : "navbar-white"
           );
