@@ -18,7 +18,9 @@
       "Leadership",
       "Cybersecurity"
     ],
-    "tags": ["Education", "Graduate"]
+    "tags": ["Education", "Graduate"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/mesc-software-engineering"
   },
   {
     "id": "besc-software-engineering",
@@ -38,7 +40,9 @@
       "MySQL",
       "Figma"
     ],
-    "tags": ["Education", "Undergraduate"]
+    "tags": ["Education", "Undergraduate"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/besc-software-engineering"
   },
   {
     "id": "high-school-diploma",
@@ -59,7 +63,9 @@
       "Team Captain for Volleyball",
       "Leader of the Flute Squad"
     ],
-    "tags": ["Education", "High School"]
+    "tags": ["Education", "High School"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/high-school-diploma"
   },
   {
     "id": "thesis-research",
@@ -76,7 +82,9 @@
       "Machine Learning",
       "Cybersecurity"
     ],
-    "tags": ["Project", "School Project", "Graduate"]
+    "tags": ["Project", "School Project", "Graduate"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/thesis-research"
   },
   {
     "id": "research-project",
@@ -91,7 +99,9 @@
       "Research",
       "Presentation Design"
     ],
-    "tags": ["Project", "School Project", "Graduate"]
+    "tags": ["Project", "School Project", "Graduate"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/research-project"
   },
   {
     "id": "teaching-assistantship-western",
@@ -118,29 +128,18 @@
       "Full-Stack Web Development",
       "Student Mentorship"
     ],
-    "tags": ["Work", "Teaching"]
+    "tags": ["Work", "Teaching"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/teaching-assistantship-western"
   },
   {
     "id": "hyperpad-software-engineer",
     "startDate": "2021-06-01",
-    "endDate": "Present",
+    "endDate": "2023-09-02",
     "name": "Hyperpad (Startup) Software Engineer",
-    "description": "Software Engineer at Hyperpad responsible for backend, automation, and frontend development. Worked on large-scale projects using GraphQL, Ruby on Rails, Firebase, and Next.js. Automated testing with Cypress.js, Detox, and Cucumber; built responsive UIs with React.js and Next.js.",
+    "description": "Software Engineer at Hyperpad responsible for backend, automation, and frontend development...",
     "institution": "Hyperpad",
-    "projects": [
-      {
-        "title": "Backend Development",
-        "description": "Contributed to backend development using Ruby on Rails, GraphQL, and Playwright; built and debugged backend features using Firebase and Next.js."
-      },
-      {
-        "title": "Automation & Testing",
-        "description": "Developed automated tests using Cypress.js, Detox, and Cucumber pre-processor to streamline workflow efficiency."
-      },
-      {
-        "title": "Frontend Development",
-        "description": "Built responsive frontend features using React.js, Next.js, JavaScript, HTML, and CSS."
-      }
-    ],
+    "projects": [],
     "skills": [
       "GraphQL",
       "Ruby on Rails",
@@ -155,9 +154,10 @@
       "HTML",
       "CSS"
     ],
-    "tags": ["Work", "Startup", "Full-Stack Development"]
+    "tags": ["Work", "Startup", "Full-Stack Development"],
+    "demo": "URL_HERE",
+    "image": "/images/entries/hyperpad-software-engineer"
   },
-
   {
     "id": "sailor-dash",
     "startDate": "2018-01-01",
@@ -166,15 +166,16 @@
     "description": "A game developed during high school that demonstrated early programming skills and creativity.",
     "institution": "Bayview Glen Independent School",
     "skills": ["JavaScript", "HTML", "CSS", "Java"],
-    "tags": ["Project", "School Project", "High School"]
+    "tags": ["Project", "School Project", "High School"],
+    "demo": "https://luxscious.github.io/Sailor-Moon-Dash/",
+    "image": "/public/images/Sailor_Moon_Dash.png"
   },
-
   {
     "id": "val-t",
     "name": "Val-T",
     "startDate": "2022-01-11",
     "endDate": "2022-01-15",
-    "description": "Val-T is an online platform for organizing and hosting Valorant tournaments. It automatically collects match data and provides features like leaderboards, player and team statistics, and account management to enhance the competitive experience for players and spectators.",
+    "description": "Val-T is an online platform for organizing and hosting Valorant tournaments...",
     "institution": "Independent Project",
     "skills": [
       "HTML",
@@ -185,14 +186,16 @@
       "MySQL",
       "Python"
     ],
-    "tags": ["Project"]
+    "tags": ["Project"],
+    "demo": "https://devpost.com/software/val-t",
+    "image": "/images/entries/val-t"
   },
   {
     "id": "hive",
     "name": "HIVE",
     "startDate": "2022-01-07",
     "endDate": "2022-01-09",
-    "description": "HIVE is an online platform that empowers girls and women to explore and grow in computing through community support and project-based mentorship.",
+    "description": "HIVE is an online platform that empowers girls and women to explore and grow in computing...",
     "institution": "SheHacks VI",
     "skills": [
       "React.js",
@@ -206,14 +209,16 @@
       "CSS",
       "Axios"
     ],
-    "tags": ["Project", "Hackathon"]
+    "tags": ["Project", "Hackathon"],
+    "demo": "https://devpost.com/software/hive-thl07v",
+    "image": "/images/entries/hive"
   },
   {
     "id": "risync",
     "name": "RiSync",
     "startDate": "2021-11-19",
     "endDate": "2021-11-21",
-    "description": "RiSync is a web tool that helps travelers overcome jet lag by providing personalized sleep adjustment plans. It integrates travel and time zone data to recommend optimal sleep and wake times, helping users realign their circadian rhythm after long flights.",
+    "description": "RiSync is a web tool that helps travelers overcome jet lag...",
     "institution": "Hack Western 8",
     "skills": [
       "React",
@@ -227,14 +232,16 @@
       "HTML",
       "CSS"
     ],
-    "tags": ["Project", "Hackathon"]
+    "tags": ["Project", "Hackathon"],
+    "demo": "https://devpost.com/software/jet-lag-fixer",
+    "image": "/images/entries/risync"
   },
   {
     "id": "travel-buddy",
     "name": "Travel Buddy",
     "startDate": "2021-01-28",
     "endDate": "2021-01-31",
-    "description": "Travel Buddy is a gamified travel companion app for children (ages 5–10) to make flying less stressful. It prepares kids for flights through interactive mini-games that simulate airport procedures and highlights geographic landmarks along their journey to keep them engaged. The project won the American Airlines Challenge at TAMUhack 2021.",
+    "description": "Travel Buddy is a gamified travel companion app for children...",
     "institution": "TAMUhack 2021",
     "skills": [
       "Unity",
@@ -243,16 +250,33 @@
       "Adobe XD",
       "American Airlines Flight API"
     ],
-    "tags": ["Project", "Hackathon"]
+    "tags": ["Project", "Hackathon"],
+    "demo": "https://devpost.com/software/travel-buddy-wh873z",
+    "image": "/images/entries/travel-buddy"
   },
   {
     "id": "wegrowth",
     "name": "WeGrowth",
     "startDate": "2021-01-08",
     "endDate": "2021-01-10",
-    "description": "WeGrowth is an interactive mobile game designed to educate young individuals about the climate crisis and financial responsibility through fun gameplay. It makes learning mindful financial decision-making for good causes rewarding and won the Wolfram Alpha Award at SheHacks V 2021.",
+    "description": "WeGrowth is an interactive mobile game designed to educate young individuals...",
     "institution": "SheHacks V",
     "skills": ["C++", "Visual Studio", "Ubisoft API", "Adobe XD"],
-    "tags": ["Project", "Hackathon"]
+    "tags": ["Project", "Hackathon"],
+    "demo": "https://devpost.com/software/branched-out",
+    "image": "/images/entries/wegrowth"
+  },
+  {
+    "id": "spacetagram",
+    "name": "Spacetagram",
+    "startDate": "2022-02-01",
+    "endDate": "2022-02-01",
+    "description": "A React-based web app that pulls data from NASA’s Astronomy Picture of the Day API to display space photography with like functionality.",
+    "institution": "Independent Project",
+    "skills": ["React.js", "HTML", "CSS", "JavaScript", "NASA API", "Axios"],
+    "tags": ["Project", "Frontend"],
+    "demo": "https://luxscious.github.io/spacetagram/",
+    "image": "/images/entries/spacetagram",
+    "github": "https://github.com/luxscious/spacetagram"
   }
 ]

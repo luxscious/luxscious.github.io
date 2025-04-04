@@ -42,3 +42,45 @@
     top: 10px;
   }
 }
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Theme carousel arrows */
+.slick-prev,
+.slick-next {
+  z-index: 2;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: white;
+  font-size: 30px;
+}
+
+/* Make sure the dots show up */
+.slick-dots li button:before {
+  font-size: 10px;
+  color: white !important;
+  opacity: 0.5;
+}
+.slick-dots li.slick-active button:before {
+  color: white !important;
+  opacity: 1;
+}
+
+.slick-slide {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.4;
+  transform: scale(0.95);
+  overflow: visible !important;
+}
+.slick-center {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 2;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  /* transform: translate3d(0, 0, 0); */
+  overflow: visible !important;
+}

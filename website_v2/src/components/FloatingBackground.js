@@ -4,7 +4,7 @@ import starImg from "../assets/star.svg";
 import "../styles/floatingBackground.css";
 
 const MAX_CLOUDS = 20;
-const MAX_STARS = 20;
+const MAX_STARS = 100;
 
 const FloatingBackground = () => {
   const containerRef = useRef(null);
@@ -13,7 +13,7 @@ const FloatingBackground = () => {
   const starCount = useRef(0);
   const recentCloudTopsLeft = useRef([]);
   const recentCloudTopsRight = useRef([]);
-  const MIN_CLOUD_SPACING = 10; // in percent (adjust as needed)
+  const MIN_CLOUD_SPACING = 20; // in percent (adjust as needed)
 
   useEffect(() => {
     const container = containerRef.current;
