@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# 🌐 Personal Portfolio — [luxscious.github.io](https://luxscious.github.io)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my personal portfolio site, built with **React** and deployed using **GitHub Pages**. It showcases my journey as a Software Engineer and Master’s candidate specializing in cybersecurity, with selected projects, work experience, and achievements.
 
-## Available Scripts
+> ⚠️ **Note:** This portfolio was developed quickly as a prototype, with code created through a mix of inspiration and "vibe coding." Expect ongoing updates and improvements as the project evolves.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fully responsive and accessible UI
+- Timeline-style project showcase with interactive drawers
+- Dynamic content sourced from structured JSON
+- Smooth navigation and animations
+- Clean folder-based component architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**
+- **JavaScript (ES6+)**
+- **HTML/CSS**
+- **GitHub Pages** for hosting
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+website_v2/
+├── public/                  # Static files and images
+├── src/
+│   ├── assets/              # Fonts, icons, or other static assets
+│   ├── components/          # Reusable React components (Timeline, Drawer, etc.)
+│   ├── pages/               # Page-level components (Home, About, etc.)
+│   ├── styles/              # Global or component-specific styles
+│   ├── App.js               # Main App component
+│   ├── constants.js         # Static data and configuration
+│   ├── index.js             # React DOM render entry point
+│   └── index.css            # Root-level styles
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitattributes
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Run the app locally:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📆 Build & Deploy
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To build for production:
 
-### Code Splitting
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Then, if you're using a dedicated production branch:
 
-### Analyzing the Bundle Size
+```bash
+git checkout production
+cp -r build/* .
+git commit -am "Deploy"
+git push origin production --force
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If you're using `gh-pages`:
 
-### Making a Progressive Web App
+```bash
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🙇‍♀️ About Me
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I’m a Software Engineer and Master’s student (graduating June 2025) with a love for problem-solving, secure system design, and creative learning. This portfolio is my digital home—glad you're here! If anything catches your eye, I’d love to connect.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📬 Contact
 
-### `npm run build` fails to minify
+- **Portfolio**: [luxscious.github.io](https://luxscious.github.io)
+- **GitHub**: [@luxscious](https://github.com/luxscious)
+- **LinkedIn**: [linkedin.com/in/luxscious](#)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📄 License
+
+MIT — free to use, share, and remix with credit.
