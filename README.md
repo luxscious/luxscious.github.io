@@ -99,10 +99,7 @@ I’m a Software Engineer and Master’s student (graduating June 2025) with a l
 
 - **Portfolio**: [luxscious.github.io](https://luxscious.github.io)
 - **GitHub**: [@luxscious](https://github.com/luxscious)
-- **LinkedIn**: [linkedin.com/in/luxscious](#)
+- **LinkedIn**: [https://www.linkedin.com/in/gabriella-gerges/]
 
 ---
 
-## 📄 License
-
-MIT — free to use, share, and remix with credit.
