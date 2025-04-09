@@ -64,30 +64,6 @@ npm start
 
 ---
 
-## 📆 Build & Deploy
-
-To build for production:
-
-```bash
-npm run build
-```
-
-Then, if you're using a dedicated production branch:
-
-```bash
-git checkout production
-cp -r build/* .
-git commit -am "Deploy"
-git push origin production --force
-```
-
-If you're using `gh-pages`:
-
-```bash
-npm run deploy
-```
-
----
 
 ## 🙇‍♀️ About Me
 
