@@ -250,7 +250,12 @@ export default function Home({ theme }) {
           }}
         >
           <Box
-            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              width: "75vw",
+            }}
           >
             <Box
               sx={{
@@ -266,11 +271,12 @@ export default function Home({ theme }) {
                 infinite
                 style={{ fontSize: 50, height: 64 }}
               />
+
               <p
                 style={{
                   fontSize: 20,
-                  fontFamily: "Shantell Sans",
-                  fontStyle: "italic",
+                  fontFamily: "Verdana",
+                  // fontStyle: "italic",
                   fontWeight: 300,
                 }}
               >
@@ -304,7 +310,7 @@ export default function Home({ theme }) {
               <img
                 alt="Me"
                 src={pfp}
-                style={{ maxWidth: 200, maxHeight: 200 }}
+                style={{ maxWidth: 400, maxHeight: 400 }}
               />
             </Box>
           </Box>

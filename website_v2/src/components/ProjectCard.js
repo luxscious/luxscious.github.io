@@ -177,7 +177,7 @@ const ProjectCard = ({ project, index, sliderRef }) => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 600,
+              width: "600",
               maxHeight: "90vh",
               overflowY: "auto",
               background: "rgba(24, 24, 24, 0.85)",
@@ -273,7 +273,7 @@ const ProjectCard = ({ project, index, sliderRef }) => {
                 </Stack>
               </Box>
             )}
-            {project.demo && (
+            {project.demo ? (
               <Box mt={4} textAlign="center">
                 <Button
                   variant="outlined"
@@ -292,6 +292,8 @@ const ProjectCard = ({ project, index, sliderRef }) => {
                   View Demo
                 </Button>
               </Box>
+            ) : (
+              <></>
             )}
 
             {project.tags?.length > 0 && (
