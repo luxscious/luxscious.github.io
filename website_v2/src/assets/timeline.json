@@ -19,8 +19,7 @@
       "Cybersecurity"
     ],
     "tags": ["Education", "Graduate"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/mesc-software-engineering"
+    "demo": "URL_HERE"
   },
   {
     "id": "besc-software-engineering",
@@ -41,8 +40,7 @@
       "Figma"
     ],
     "tags": ["Education", "Undergraduate"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/besc-software-engineering"
+    "demo": "URL_HERE"
   },
   {
     "id": "high-school-diploma",
@@ -64,8 +62,7 @@
       "Leader of the Flute Squad"
     ],
     "tags": ["Education", "High School"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/high-school-diploma"
+    "demo": "URL_HERE"
   },
   {
     "id": "thesis-research",
@@ -83,8 +80,7 @@
       "Cybersecurity"
     ],
     "tags": ["Project", "School Project", "Graduate"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/thesis-research"
+    "demo": "URL_HERE"
   },
   {
     "id": "research-project",
@@ -101,7 +97,7 @@
     ],
     "tags": ["Project", "School Project", "Graduate"],
     "demo": "URL_HERE",
-    "image": "/images/entries/research-project"
+    "image": "/images/research_project.png"
   },
   {
     "id": "teaching-assistantship-western",
@@ -129,8 +125,7 @@
       "Student Mentorship"
     ],
     "tags": ["Work", "Teaching"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/teaching-assistantship-western"
+    "demo": "URL_HERE"
   },
   {
     "id": "hyperpad-software-engineer",
@@ -155,8 +150,7 @@
       "CSS"
     ],
     "tags": ["Work", "Startup", "Full-Stack Development"],
-    "demo": "URL_HERE",
-    "image": "/images/entries/hyperpad-software-engineer"
+    "demo": "URL_HERE"
   },
   {
     "id": "sailor-dash",
@@ -168,7 +162,7 @@
     "skills": ["JavaScript", "HTML", "CSS", "Java"],
     "tags": ["Project", "School Project", "High School"],
     "demo": "https://luxscious.github.io/Sailor-Moon-Dash/",
-    "image": "/public/images/Sailor_Moon_Dash.png"
+    "image": "/images/Sailor_Moon_Dash.png"
   },
   {
     "id": "val-t",
@@ -188,7 +182,7 @@
     ],
     "tags": ["Project"],
     "demo": "https://devpost.com/software/val-t",
-    "image": "/images/entries/val-t"
+    "image": "/images/Val_T.jpg"
   },
   {
     "id": "hive",
@@ -211,7 +205,7 @@
     ],
     "tags": ["Project", "Hackathon"],
     "demo": "https://devpost.com/software/hive-thl07v",
-    "image": "/images/entries/hive"
+    "image": "/images/hive.jpg"
   },
   {
     "id": "risync",
@@ -234,7 +228,7 @@
     ],
     "tags": ["Project", "Hackathon"],
     "demo": "https://devpost.com/software/jet-lag-fixer",
-    "image": "/images/entries/risync"
+    "image": "/images/risync.jpg"
   },
   {
     "id": "travel-buddy",
@@ -252,7 +246,7 @@
     ],
     "tags": ["Project", "Hackathon"],
     "demo": "https://devpost.com/software/travel-buddy-wh873z",
-    "image": "/images/entries/travel-buddy"
+    "image": "/images/travel_buddy.jpg"
   },
   {
     "id": "wegrowth",
@@ -264,7 +258,7 @@
     "skills": ["C++", "Visual Studio", "Ubisoft API", "Adobe XD"],
     "tags": ["Project", "Hackathon"],
     "demo": "https://devpost.com/software/branched-out",
-    "image": "/images/entries/wegrowth"
+    "image": "/images/wegrowth.jpg"
   },
   {
     "id": "spacetagram",
@@ -276,7 +270,8 @@
     "skills": ["React.js", "HTML", "CSS", "JavaScript", "NASA API", "Axios"],
     "tags": ["Project", "Frontend"],
     "demo": "https://luxscious.github.io/spacetagram/",
-    "image": "/images/entries/spacetagram",
-    "github": "https://github.com/luxscious/spacetagram"
+
+    "github": "https://github.com/luxscious/spacetagram",
+    "image": "/images/spacetagram.png"
   }
 ]

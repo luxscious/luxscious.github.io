@@ -104,7 +104,7 @@ const ProjectCard = ({ project, index, sliderRef }) => {
               </Typography>
             </Box>
 
-            {project.image && (
+            {project.image ? (
               <Box display="flex" justifyContent="center">
                 <Box
                   component="img"
@@ -119,6 +119,20 @@ const ProjectCard = ({ project, index, sliderRef }) => {
                     my: 2,
                   }}
                 />
+              </Box>
+            ) : (
+              <Box display="flex" justifyContent="center">
+                <div class="fa-4x">
+                  <i
+                    class="fa-solid fa-cog fa-spin fa-spin-reverse"
+                    style={{
+                      "--fa-animation-duration": "6s",
+                      width: "100%",
+                      maxWidth: 280,
+                      height: 180,
+                    }}
+                  ></i>
+                </div>
               </Box>
             )}
 
@@ -187,6 +201,34 @@ const ProjectCard = ({ project, index, sliderRef }) => {
             <Typography variant="subtitle2" sx={{ opacity: 0.7 }} gutterBottom>
               {formatTimelineLabel(project.startDate, project.endDate)}
             </Typography>
+            {project.image ? (
+              <Box display="flex" justifyContent="center">
+                <Box
+                  component="img"
+                  src={project.image}
+                  alt={`${project.name} preview`}
+                  sx={{
+                    width: "75%",
+                    // maxWidth: 280,
+                    // height: 200,
+                    // objectFit: "cover",
+                    borderRadius: "0.75rem",
+                    my: 2,
+                  }}
+                />
+              </Box>
+            ) : (
+              <Box display="flex" justifyContent="center">
+                <div class="fa-4x">
+                  <i
+                    // style={{ width: "100%" }}
+                    width="100px"
+                    class="fa-solid fa-cog fa-spin fa-spin-reverse"
+                    style={{ "--fa-animation-duration": "6s" }}
+                  ></i>
+                </div>
+              </Box>
+            )}
 
             {project.institution && (
               <Typography variant="body2" sx={{ opacity: 0.8 }} gutterBottom>

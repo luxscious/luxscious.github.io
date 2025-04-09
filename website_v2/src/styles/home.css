@@ -84,3 +84,16 @@
   /* transform: translate3d(0, 0, 0); */
   overflow: visible !important;
 }
+
+/* hide page scrollbar */
+html {
+  scrollbar-width: none;
+} /* Firefox */
+body {
+  -ms-overflow-style: none;
+} /* IE and Edge */
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-button {
+  display: none;
+} /* Chrome */
+/* end hide page scrollbar */

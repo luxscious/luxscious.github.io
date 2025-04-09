@@ -25,6 +25,8 @@ import ProjectCard from "../components/ProjectCard";
 
 export default function Home({ theme }) {
   const [maximumX, setMaximumX] = useState(window.innerWidth);
+  const [isDevMode, setIsDevMode] = useState(window.innerWidth < 768);
+
   const timelineRef = useRef(null);
   const colors = COLORS.home;
   const timelineColors = COLORS.timeline;
@@ -93,302 +95,222 @@ export default function Home({ theme }) {
     }
   };
 
-  return (
-    <>
-      {/* Hero */}
-      <Box
-        className={`home-container home-container--${
-          theme === "dark" ? "light" : "dark"
-        }`}
-      >
+  useEffect(() => {
+    const resizeHandler = () => {
+      setMaximumX(window.innerWidth);
+      setIsDevMode(window.innerWidth < 768); // You can adjust 768 to your threshold
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document
+          .querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    window.addEventListener("resize", resizeHandler);
+    resizeHandler(); // Initial check
+
+    return () => window.removeEventListener("resize", resizeHandler);
+  }, []);
+  if (isDevMode) {
+    return (
+      <>
         <Box
           sx={{
-            height: "95%",
+            height: "100vh",
+            width: "50w",
+            backgroundColor: colors.darkBg,
+            color: "#fff",
             display: "flex",
-            flexDirection: "column",
+            alignItems: "center",
             justifyContent: "center",
+            textAlign: "center",
+            flexDirection: "column",
+            p: 4,
           }}
+        >
+          <Box sx={{ width: 200, height: 200 }}>
+            <Logo />
+          </Box>
+          <p style={{ fontSize: 24 }}>Website Dimensions in Development</p>
+          <div class="fa-4x">
+            <i
+              // style={{ width: "100%" }}
+              width="100px"
+              class="fa-solid fa-cog fa-spin fa-spin-reverse"
+              style={{ "--fa-animation-duration": "4s" }}
+            ></i>
+          </div>
+          <p>Please expand your Window :)</p>
+        </Box>
+      </>
+    );
+  } else {
+    return (
+      <>
+        {/* Hero */}
+        <Box
+          className={`home-container home-container--${
+            theme === "dark" ? "light" : "dark"
+          }`}
         >
           <Box
             sx={{
+              height: "95%",
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Box sx={{ width: 200, height: 200 }}>
-              <Logo />
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "row" }}>
-              <h1
-                style={{
-                  color: colors.lightFont,
-                  fontSize: 32,
-                  letterSpacing: 20,
-                  padding: 20,
-                }}
-              >
-                GABRIELLA
-              </h1>
-              <h1
-                style={{
-                  color: colors.lightFont,
-                  fontSize: 32,
-                  letterSpacing: 20,
-                  padding: 20,
-                }}
-              >
-                GERGES
-              </h1>
-            </Box>
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "space-between",
-                width: "30%",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
-              <Button
-                variant="outlined"
-                sx={{ color: "white", borderColor: "white" }}
-                href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
-              >
-                Resumé
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{ color: "white", borderColor: "white" }}
-                href="#timeline"
-              >
-                Work Experience
-              </Button>
-              <Button
-                variant="outlined"
-                sx={{ color: "white", borderColor: "white" }}
-                href="#projects"
-              >
-                Projects
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-
-      {/* Divider */}
-      <svg width="100%" height="200">
-        <path
-          d={`M0,0 L${maximumX},0 C${maximumX / 2},200 ${
-            maximumX / 2
-          },0  0,200z`}
-          fill={colors.darkBg}
-        />
-      </svg>
-
-      {/* About Me */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          backgroundColor: "white",
-          py: 12,
-        }}
-      >
-        <Box
-          sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              fontFamily: "Playwrite AT",
-              px: 10,
-            }}
-          >
-            <Typewriter
-              text="Hi..."
-              delay={400}
-              infinite
-              style={{ fontSize: 50, height: 64 }}
-            />
-            <p
-              style={{
-                fontSize: 20,
-                fontFamily: "Shantell Sans",
-                fontStyle: "italic",
-                fontWeight: 300,
-              }}
-            >
-              {aboutMeInfo.text}
-            </p>
-            <Box sx={{ display: "flex", flexDirection: "row" }}>
-              <AnimatedIcon
-                width={30}
-                height={30}
-                onClick="https://github.com/luxscious"
-              >
-                <Github />
-              </AnimatedIcon>
-              <AnimatedIcon
-                width={30}
-                height={30}
-                onClick="https://www.linkedin.com/in/gabriella-gerges/"
-              >
-                <LinkedIn />
-              </AnimatedIcon>
-              <AnimatedIcon
-                width={64}
-                height={64}
-                onClick="https://devpost.com/luxscious?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
-              >
-                <Devpost />
-              </AnimatedIcon>
-            </Box>
-          </Box>
-          <Box sx={{ pr: 5 }}>
-            <img alt="Me" src={pfp} style={{ maxWidth: 200, maxHeight: 200 }} />
-          </Box>
-        </Box>
-      </Box>
-
-      {/* Timeline Section */}
-      <svg
-        width="100%"
-        height="200"
-        viewBox={`0 0 ${maximumX} 200`}
-        preserveAspectRatio="none"
-      >
-        <path
-          d={`M0,200 L${maximumX},200 C${maximumX / 2},0 ${
-            maximumX / 2
-          },200  0,0z`}
-          fill={timelineColors.darkBg}
-        />
-      </svg>
-
-      <Box
-        id="timeline"
-        ref={timelineRef}
-        sx={{
-          mt: "-3px",
-          width: "100vw",
-          position: "relative",
-          backgroundColor: timelineColors.darkBg,
-          pb: 30,
-        }}
-      >
-        <FloatingBackground />
-
-        {/* Work Section */}
-        <Box
-          sx={{
-            width: "60vw",
-            pb: 20,
-            zIndex: 1,
-            justifySelf: "center",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              pl: 5,
-            }}
-          >
-            <Box sx={{ width: 50, height: 50 }}>
-              <LogoSmall />
-            </Box>
-            <h1
-              style={{
-                color: "white",
-                fontSize: 24,
-                letterSpacing: 6,
-                paddingLeft: 5,
-              }}
-            >
-              Work Experience
-            </h1>
-          </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", pt: 12 }}>
-            {experiences.map((exp, index) => (
-              <TimelineRow
-                key={exp.id}
-                experience={exp}
-                isLast={index === experiences.length - 1}
-                containerRef={timelineRef}
-              />
-            ))}
-          </Box>
-        </Box>
-
-        {/* Projects Carousel */}
-        <Box
-          id="projects"
-          sx={{
-            maxWidth: 1200,
-            mx: "auto",
-            px: 2,
-            display: "flex",
-            justifyContent: "center",
-            position: "relative",
-            overflow: "visible",
-            zIndex: 3,
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              position: "relative",
-            }}
-          >
-            <Slider
-              ref={sliderRef}
-              centerMode
-              centerPadding="60px"
-              slidesToShow={3}
-              infinite
-              arrows
-              prevArrow={<PrevArrow />}
-              nextArrow={<NextArrow />}
-              dots
-              speed={500}
-              autoplay
-              adaptiveHeight={false}
-              responsive={[
-                {
-                  breakpoint: 1024,
-                  settings: { slidesToShow: 2, centerPadding: "40px" },
-                },
-                {
-                  breakpoint: 768,
-                  settings: { slidesToShow: 1, centerPadding: "20px" },
-                },
-              ]}
-            >
-              {projects.map((project, index) => (
-                <Box
-                  key={project.id}
-                  sx={{
-                    px: 1,
-                    display: "flex",
-                    justifyContent: "center",
-                    pb: 4,
-                    pt: 1,
+              <Box sx={{ width: 200, height: 200 }}>
+                <Logo />
+              </Box>
+              <Box sx={{ display: "flex", flexDirection: "row" }}>
+                <h1
+                  style={{
+                    color: colors.lightFont,
+                    fontSize: 32,
+                    letterSpacing: 20,
+                    padding: 20,
                   }}
                 >
-                  <ProjectCard
-                    project={project}
-                    index={index}
-                    sliderRef={sliderRef}
-                  />
-                </Box>
-              ))}
-            </Slider>
+                  GABRIELLA
+                </h1>
+                <h1
+                  style={{
+                    color: colors.lightFont,
+                    fontSize: 32,
+                    letterSpacing: 20,
+                    padding: 20,
+                  }}
+                >
+                  GERGES
+                </h1>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "30%",
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  sx={{ color: "white", borderColor: "white" }}
+                  href="https://luxscious.github.io/git-cloud-storage/Gabriella_Gerges_Resume.pdf"
+                >
+                  Resumé
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{ color: "white", borderColor: "white" }}
+                  href="#timeline"
+                >
+                  Work Experience
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{ color: "white", borderColor: "white" }}
+                  href="#projects"
+                >
+                  Projects
+                </Button>
+              </Box>
+            </Box>
           </Box>
         </Box>
-      </Box>
 
-      {/* Footer Divider */}
-      <Box sx={{ backgroundColor: "white" }}>
+        {/* Divider */}
+        <svg width="100%" height="200">
+          <path
+            d={`M0,0 L${maximumX},0 C${maximumX / 2},200 ${
+              maximumX / 2
+            },0  0,200z`}
+            fill={colors.darkBg}
+          />
+        </svg>
+
+        {/* About Me */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "white",
+            py: 12,
+          }}
+        >
+          <Box
+            sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                fontFamily: "Playwrite AT",
+                px: 10,
+              }}
+            >
+              <Typewriter
+                text="Hi..."
+                delay={400}
+                infinite
+                style={{ fontSize: 50, height: 64 }}
+              />
+              <p
+                style={{
+                  fontSize: 20,
+                  fontFamily: "Shantell Sans",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                }}
+              >
+                {aboutMeInfo.text}
+              </p>
+              <Box sx={{ display: "flex", flexDirection: "row" }}>
+                <AnimatedIcon
+                  width={30}
+                  height={30}
+                  onClick="https://github.com/luxscious"
+                >
+                  <Github />
+                </AnimatedIcon>
+                <AnimatedIcon
+                  width={30}
+                  height={30}
+                  onClick="https://www.linkedin.com/in/gabriella-gerges/"
+                >
+                  <LinkedIn />
+                </AnimatedIcon>
+                <AnimatedIcon
+                  width={64}
+                  height={64}
+                  onClick="https://devpost.com/luxscious?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"
+                >
+                  <Devpost />
+                </AnimatedIcon>
+              </Box>
+            </Box>
+            <Box sx={{ pr: 5 }}>
+              <img
+                alt="Me"
+                src={pfp}
+                style={{ maxWidth: 200, maxHeight: 200 }}
+              />
+            </Box>
+          </Box>
+        </Box>
+
+        {/* Timeline Section */}
         <svg
           width="100%"
           height="200"
@@ -396,18 +318,157 @@ export default function Home({ theme }) {
           preserveAspectRatio="none"
         >
           <path
-            d={`M0,0 L${maximumX},0 C${maximumX / 2},200 ${
+            d={`M0,200 L${maximumX},200 C${maximumX / 2},0 ${
               maximumX / 2
-            },0  0,200z`}
+            },200  0,0z`}
             fill={timelineColors.darkBg}
           />
         </svg>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <p style={{ fontFamily: "Rock Salt", color: "black" }}>
-            made by: Gabriella Gerges, 2025
-          </p>
+
+        <Box
+          id="timeline"
+          ref={timelineRef}
+          sx={{
+            mt: "-3px",
+            width: "100vw",
+            position: "relative",
+            backgroundColor: timelineColors.darkBg,
+            pb: 30,
+          }}
+        >
+          <FloatingBackground />
+
+          {/* Work Section */}
+          <Box
+            sx={{
+              width: "60vw",
+              pb: 20,
+              zIndex: 1,
+              justifySelf: "center",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                pl: 5,
+              }}
+            >
+              <Box sx={{ width: 50, height: 50 }}>
+                <LogoSmall />
+              </Box>
+              <h1
+                style={{
+                  color: "white",
+                  fontSize: 24,
+                  letterSpacing: 6,
+                  paddingLeft: 5,
+                }}
+              >
+                Work Experience
+              </h1>
+            </Box>
+            <Box sx={{ display: "flex", flexDirection: "column", pt: 12 }}>
+              {experiences.map((exp, index) => (
+                <TimelineRow
+                  key={exp.id}
+                  experience={exp}
+                  isLast={index === experiences.length - 1}
+                  containerRef={timelineRef}
+                />
+              ))}
+            </Box>
+          </Box>
+
+          {/* Projects Carousel */}
+          <Box
+            id="projects"
+            sx={{
+              maxWidth: 1200,
+              mx: "auto",
+              px: 2,
+              display: "flex",
+              justifyContent: "center",
+              position: "relative",
+              overflow: "visible",
+              zIndex: 3,
+            }}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                position: "relative",
+              }}
+            >
+              <Slider
+                ref={sliderRef}
+                centerMode
+                centerPadding="60px"
+                slidesToShow={3}
+                infinite
+                arrows
+                prevArrow={<PrevArrow />}
+                nextArrow={<NextArrow />}
+                dots
+                speed={500}
+                autoplay
+                adaptiveHeight={false}
+                responsive={[
+                  {
+                    breakpoint: 1024,
+                    settings: { slidesToShow: 2, centerPadding: "40px" },
+                  },
+                  {
+                    breakpoint: 768,
+                    settings: { slidesToShow: 1, centerPadding: "20px" },
+                  },
+                ]}
+              >
+                {projects.map((project, index) => (
+                  <Box
+                    key={project.id}
+                    sx={{
+                      px: 1,
+                      display: "flex",
+                      justifyContent: "center",
+                      pb: 4,
+                      pt: 1,
+                    }}
+                  >
+                    <ProjectCard
+                      project={project}
+                      index={index}
+                      sliderRef={sliderRef}
+                    />
+                  </Box>
+                ))}
+              </Slider>
+            </Box>
+          </Box>
         </Box>
-      </Box>
-    </>
-  );
+
+        {/* Footer Divider */}
+        <Box sx={{ backgroundColor: "white" }}>
+          <svg
+            width="100%"
+            height="200"
+            viewBox={`0 0 ${maximumX} 200`}
+            preserveAspectRatio="none"
+          >
+            <path
+              d={`M0,0 L${maximumX},0 C${maximumX / 2},200 ${
+                maximumX / 2
+              },0  0,200z`}
+              fill={timelineColors.darkBg}
+            />
+          </svg>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <p style={{ fontFamily: "Rock Salt", color: "black" }}>
+              made by: Gabriella Gerges, 2025
+            </p>
+          </Box>
+        </Box>
+      </>
+    );
+  }
 }
